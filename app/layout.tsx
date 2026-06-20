@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ToDoリスト",
-  description: "シンプルで使いやすいToDoリストアプリ",
+  title: "天気予報",
+  description: "都市の天気・週間予報を確認できるアプリ",
 };
 
 export default function RootLayout({

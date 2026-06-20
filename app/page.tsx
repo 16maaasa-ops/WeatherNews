@@ -1,5 +1,5 @@
-import TodoApp from './components/TodoApp'
+import WeatherApp from './components/WeatherApp'
 
 export default function Home() {
-  return <TodoApp />
+  return <WeatherApp />
 }
