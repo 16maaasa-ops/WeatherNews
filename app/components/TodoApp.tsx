@@ -51,13 +51,10 @@ export default function TodoApp() {
   }
 
   function deleteTask(id: string) {
-    let found: Task | undefined
-    setTasks(prev => {
-      found = prev.find(t => t.id === id)
-      return prev.filter(t => t.id !== id)
-    })
+    const found = tasks.find(t => t.id === id)
     if (!found) return
 
+    setTasks(prev => prev.filter(t => t.id !== id))
     if (undoTimerRef.current) clearTimeout(undoTimerRef.current)
     setDeletedTask({ task: found, index: 0 })
     undoTimerRef.current = setTimeout(() => setDeletedTask(null), 5000)
