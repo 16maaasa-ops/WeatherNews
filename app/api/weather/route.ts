@@ -26,7 +26,9 @@ export async function GET(request: NextRequest) {
     }
     resolvedLat = String(geo.lat)
     resolvedLon = String(geo.lon)
-    displayName = geo.displayName
+    // 日本語入力はそのまま表示名に使う（APIが返す地名が期待と異なるケースを防ぐ）
+    const isJapanese = /[぀-ヿ㐀-䶿一-鿿]/.test(city)
+    displayName = isJapanese ? city : geo.displayName
   } else {
     return Response.json({ error: 'city または lat/lon が必要です' }, { status: 400 })
   }
